@@ -1,0 +1,17 @@
+<h1><%= @user.username %></h1>
+
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.label :username, "Your username here: " %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "Email: " %>
+    <%= f.email_field :email, placeholder: "example@email.com" %>
+  </p>
+  <p>
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password %>
+  </p>
+  <%= f.submit %>
+<% end %>
