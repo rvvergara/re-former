@@ -1,6 +1,5 @@
 <h1><%= @user.username %></h1>
 
-<%= form_for(@user) do |f| %>
 <% if @user.errors.any?%>
 <% errors = @user.errors %>
   <h3> <%= pluralize(errors.count, 'error')%> prevented this user from being saved: </h3>
@@ -10,6 +9,8 @@
     <% end %>
   </ul>
 <% end %>
+
+<%= form_for(@user) do |f| %>
   <p>
     <%= f.label :username, "Your username here: " %>
     <%= f.text_field :username %>
