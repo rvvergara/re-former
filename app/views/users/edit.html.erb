@@ -1,6 +1,6 @@
 <h1><%= @user.username %></h1>
 
-<%= form_for(@user, url: users_path) do |f| %>
+<%= form_for(@user) do |f| %>
   <p>
     <%= f.label :username, "Your username here: " %>
     <%= f.text_field :username %>
