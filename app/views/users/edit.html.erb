@@ -1,0 +1,27 @@
+<h1><%= @user.username %></h1>
+
+<% if @user.errors.any?%>
+<% errors = @user.errors %>
+  <h3> <%= pluralize(errors.count, 'error')%> prevented this user from being saved: </h3>
+  <ul>
+    <%errors.full_messages.each do |message|%>
+      <li><%=message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+  <p>
+    <%= f.label :username, "Your username here: " %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "Email: " %>
+    <%= f.email_field :email, placeholder: "example@email.com" %>
+  </p>
+  <p>
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password %>
+  </p>
+  <%= f.submit %>
+<% end %>
